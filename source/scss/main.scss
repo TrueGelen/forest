@@ -1,0 +1,727 @@
+@import 'smart-grid';
+@import '_normalize';
+@import '_fonts';
+@import 'swiper.min.css';
+
+
+// https://vk.com/id290805503
+
+//---vars
+// $text: white;
+// black: #be84a3;
+$mainGreen: #9cc83a;
+$mainWhite: #f2f2f2;
+
+///---------common styles ----------------------
+
+html {
+	// font-size: 20px;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+img{
+	margin: 0;
+	padding: 0;
+	width: 100%;	
+}
+
+picture{
+	display: block;
+
+	& > *{
+		vertical-align: top;
+	}
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+body, div, h1, h2, h3, h4, p, input {
+	margin: 0;
+	padding: 0;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.container {	
+	// border: 1px solid red;
+	position: relative;
+	// @include wrapper();
+
+	// @include to(1920px){
+	// 	max-width: calc(1338.5px + 60px);
+	// }
+
+	// @include sm(max-width, 93%);
+  // @include xs(max-width, 100%);
+  
+  width: 77.8%;
+  margin: 0 auto;
+}
+
+.page {
+	position: relative;
+	// max-width: 1920px;
+}
+
+.asideColumn {
+	position: fixed;
+	z-index: 10;
+	width: 185px;
+	height: 100vh;
+	padding: 20px 0 10px 25px;
+	background-color: #fff;
+	border-right: 1px solid #e5e5e5;
+
+	@include to(1023px){
+		display: none;
+	}
+
+	& > p{
+	}
+}
+
+.pageWrap {
+	padding-left: 187px;
+
+	@include to(1023px){
+		padding-left: 0;
+	}
+}
+
+.uniqueizer11221{
+  position: relative;
+  line-height: 1.15;
+  background-color: $mainWhite;
+
+  .mainTitle{
+    font-family: Mir-Bold, sans-serif;
+    text-transform: uppercase;
+		font-size: 2.03vw;
+		color: black;
+		line-height: 1;
+
+		// @include to(1023px){
+		// 	font-size: 1.4vw;
+		// }
+		// @include sm(font-size, 1.9vw);
+		// @include xs(font-size, 2.4vw);
+		// @include xxs(font-size, 3.2vw);
+	}
+
+	.mainText{
+    font-family: Mir-Medium, sans-serif;
+    text-transform: uppercase;
+		font-size: 1.2vw;
+		color: black;
+		line-height: 1.25;
+
+		// @include to(1023px){
+		// 	font-size: 1.4vw;
+		// }
+		// @include sm(font-size, 1.9vw);
+		// @include xs(font-size, 2.4vw);
+		// @include xxs(font-size, 3.2vw);
+
+		// & > span{
+			
+		// }
+  }
+  
+  .titleLine{
+    margin: .5vw 0;
+    display: flex;
+    align-items: center;
+    transform: translateX(-11vw);
+
+    & > div{
+      &:first-child{
+        background-color: white;
+        width: 34vw;
+        height: 3px;
+      }
+  
+      &:last-child{
+        background-color: white;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        margin-left: -2px;
+      }
+    }    
+
+    &_green{
+      & > div{
+        &:first-child{
+          background-color: $mainGreen;
+          width: 42.5vw;
+        }
+    
+        &:last-child{
+          background-color: $mainGreen;
+          width: 13px;
+          height: 13px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  .dot{
+    position: absolute;
+    top: .5vw;    
+    left: 0;
+    transform: translateX(calc((.4vw + 0.5vw) * -1));
+    width: .4vw;
+    height: .4vw;
+    min-width: 7px;
+    min-height: 7px;
+    border-radius: 50%;
+
+    &_white{
+      background-color: $mainGreen;
+      border: 1px solid white;
+    }
+
+    &_green{
+      background-color: $mainWhite;
+      border: 1px solid $mainGreen;
+    }
+  }
+
+	.firstBlock{
+		border: 1px solid black;
+		position: relative;
+		line-height: 1.15;
+		text-align: center;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 11px 21px 0px rgba(33, 34, 42, 0.13);
+    z-index: 2;
+    // height: 21.1vw;
+
+    &__fullBg{
+      width: 100%;
+    }
+    
+    /* &__greenBg{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 95.3%;
+    }
+
+    &__builds{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 23%;
+    } */
+
+    &__triangle{
+      position: absolute;
+      right: 10%;
+      bottom: 0;
+      width: 30vw;
+      transform: translateY(80%);
+    }
+
+    &__date{
+      position: absolute;
+      right: 19.3%;
+      bottom: 0;
+      font-family: Mir-Bold, sans-serif;
+      font-size: 1vw;
+      transform: rotate(90deg) translateX(-60%);
+    }
+
+    &__container{
+      border: 1px solid red;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      // padding: 4.3vw 0 6.5vw 0;
+      padding-top: 4.3vw;
+    }
+
+    &__titleBlock{
+      border: 1px solid black;
+      font-family: Mir-Bold, sans-serif;
+      text-align: left;
+      text-transform: uppercase;
+      line-height: 1;
+      // letter-spacing: .5px;
+
+      & > h2{
+        color: white;
+        font-size: 2vw;
+      }
+
+      & > h1{
+        font-size: 3.5vw;
+        margin-top: 5px;
+      }
+    }
+
+    &__subtitle{
+      font-family: Mir-Bold, sans-serif;
+      text-align: left;
+      text-transform: uppercase;
+      font-size: 1.15vw;
+    }
+
+    &__logosLayout{
+      border: 1px solid black;
+      position: absolute;
+      //100% - width of container / 2
+      left: calc((100% - 77.8%) / 2);
+      bottom: 0;
+      transform: translateY(50%);
+      box-shadow: 9px 10px 32px 0px rgba(33, 34, 42, 0.13),-0.6px -0.7px 32px 0px rgba(255, 255, 255, 0.13);
+      background-color: white;
+      padding: 1vw 1.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 23.4vw;
+
+      & > img{
+        
+        &:first-child{
+          width: 43%;
+        }
+
+        &:last-child{
+          width: 50%;
+        }
+      }
+    }
+  }
+  
+  .tasks{
+    border: 1px solid black;
+		position: relative;
+    line-height: 1.15;
+    padding-top: 7vw;
+    padding-bottom: 4.1vw;
+    z-index: 1;
+
+    
+    
+    &__list{
+      border: 1px solid red;
+      position: relative;
+      color: black;
+    }
+
+    &__task{
+      // border: 1px solid black;
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: .1vw 0;
+
+      & > div{
+        width: 0.4vw;
+        height: 0.4vw;
+        min-height: 7px;
+        min-width: 7px;
+        border-radius: 50%;
+        border: 1.5px solid $mainGreen;
+        background-color: $mainWhite;
+        margin-right: .8vw;
+      }
+    } 
+
+    &__dottedLine{ 
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: calc(.13vw);
+      width: 2px;
+      height: 80%;
+    }
+  }
+
+  .TA{
+    border: 1px solid black;
+		position: relative;
+    line-height: 1.15;
+    // padding-top: 7vw;
+    // padding-bottom: 4.1vw;
+
+    &__boldTitle{
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    &__circ{
+      border: 1.5px solid white;
+      background-color: $mainGreen;
+      width: 0.4vw;
+      height: 0.4vw;
+      min-height: 7px;
+      min-width: 7px;
+      border-radius: 50%;
+      margin-right: .5vw;
+    }
+
+    &__fullBg{
+      width: 100%;
+    }
+
+    &__container{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -52.5%);
+    }
+
+    &__textBlock{
+      border: 1px solid red;
+      position: relative;
+      width: 47%;
+
+      margin: 1vw 0;
+    }
+
+    &__dotted{
+      position: absolute;
+      top: .5vw;
+      left: calc(.15vw);
+      width: 2px;
+      height: 110%;
+    }
+
+    &__text{
+      color: #3c6971;
+      font-weight: bold;
+      margin-left: .9vw;
+    }
+  }
+
+  .decision{
+    border: 1px solid black;
+		position: relative;
+    line-height: 1.15;
+    padding-top: 2.5vw;
+    padding-bottom: 3.5vw;
+
+    &__triangle{
+      position: absolute;
+      bottom: 0;
+      transform: translateY(10%);
+      right: 5vw;
+      width: 20vw;
+    }
+
+    &__block{
+      border: 1px solid black;
+      width: 90%;
+      margin: 1vw 0;
+    }
+
+    &__titleBlock{
+      font-family: Mir-Bold, sans-serif;
+    }
+
+    &__list{
+      position: relative;
+    }
+
+    &__task{
+      position: relative;
+      font-family: Mir-Bold, sans-serif;
+      color: #3c6971;
+
+      transform: translateX(calc(.4vw + .5vw));
+    }
+
+    &__dottedLine{
+      position: absolute;
+      top: 1vw;
+      left: .14vw;
+      width: 2px;
+
+      &_1{
+        height: 71%;
+      }
+
+      &_2{
+        height: 40%;
+      }
+    }
+  }
+
+	/* .slider{
+		// border: 1px solid blue;
+		position: relative;
+		line-height: 1.15;
+
+		padding: 3.5vw 0 0 0;
+		@include xs(padding, 10vw 0 0 0);
+		@include xxs(padding, 12vw 0 0 0);
+
+		&__wrapperSwiper{
+			// border: 1px solid yellow;
+			position: relative;			
+			width: 100%;
+			text-align: center;
+		}
+
+		&__swiper-container{
+			// border: 1px solid red;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+
+			width: 54%;
+			margin: 0 auto;
+			border-radius: 30px;
+
+			@include sm(width, 84%);
+		}
+
+		&__swiperItemsContainer{
+			position: relative;
+			align-items: center;
+			
+			@include from(1025px){
+				cursor: pointer;
+			}
+
+			& > video{
+				max-height: 37.3vw;
+				padding: 0 2px;
+
+				@include sm(max-height, 50vw);
+
+				&:focus{
+					outline: none;
+				}
+			}
+		}
+
+		&__buttons{
+			// border: 1px solid red;
+			position: absolute;
+			width: 80%;
+
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			
+			display: flex;
+			justify-content: space-between;
+
+			@include sm(width, 100%);
+
+			@include from(1025px){
+
+				& > *{
+					cursor: pointer;
+				}				
+			}
+		}
+
+		&__btn{
+			width: 10%;
+
+			@include sm(width, 8%);
+
+			cursor: pointer;
+
+			&:hover{
+				transform: scale(1.2);
+			}
+
+			&:active{
+				transform: scale(1);
+			}
+
+			@include md-block{
+				cursor: default;
+
+				&:hover{
+					transform: scale(1);
+				}
+
+				&:active{
+					transform: scale(0.8);
+				}
+			}
+		}
+
+		.swiper-pagination_block{
+			position: relative;
+			text-align: center;
+			margin-top: 1vw;
+		}
+
+		.swiper-pagination-bullet{
+			opacity: 1;
+			width: 5px;
+			height: 5px;
+			background: #81878a;
+			margin: 0px .5vw;
+
+			&-active{
+				background: white;
+			}
+		}
+	} */
+
+	.team{
+		// border: 1px solid white;
+    position: relative;
+		line-height: 1.15;
+		background-color: black;
+
+		padding: 3vw 0;
+
+		&__content{
+			// border: 1px solid white;
+			width: 95%;
+			margin: 0 auto;
+		}
+
+		&__title{
+			text-align: center;
+		}
+
+    &__members{
+			// border: 1px solid blue;
+      display: flex;
+      // flex-wrap: wrap;
+			justify-content: space-between;
+
+			width: 100%;
+
+			margin-top: 2vw;
+
+			@include to(1366px){
+				flex-wrap: wrap;
+			}
+
+			@include xs(justify-content, space-around);
+		}
+	}
+
+  .member{
+		// border: 1px solid red;
+		position: relative;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+
+		color: white;
+
+		width: 12.5%;
+		padding: 0 .5vw;
+
+		@include to(1366px){
+			width: 21%;
+			margin: 1.5vw 0;
+		}
+
+		@include sm(width, 24%);
+		@include xs(width, 30%);
+		@include xxs(width, 45%);
+		
+		&__photo{
+			position: relative;
+			width: 40%;
+		}
+
+		&__textBlock{
+			// border: 1px solid yellow;
+			width: calc(60% - .5vw);
+			margin-left: .5vw;
+
+			@include sm-block{
+				width: calc(60% - 1vw);
+				margin-left: 1vw;
+			}
+
+			@include xxs-block{
+				width: calc(60% - 1.5vw);
+				margin-left: 1.5vw;
+			}
+		}
+
+		&__name{
+			font-family: Gilroy-Bold, sans-serif;
+			font-size: .8vw;
+
+			@include to(1366px){
+				font-size: 1vw;
+			}
+
+			@include to(1023px){
+				font-size: 1.4vw;
+			}
+
+			@include sm(font-size, 1.6vw);
+			@include xs(font-size, 2vw);
+			@include xxs(font-size, 3vw);
+		}
+
+		&__position{
+			font-family: Gilroy-Regular, sans-serif;
+			font-size: .6vw;
+
+			margin-top: .6vw;
+
+			@include to(1366px){
+				font-size: .8vw;
+				margin-top: 1vw;
+			}
+
+			@include to(1023px){
+				font-size: 1.1vw;
+			}
+
+			@include sm(font-size, 1.4vw);
+			@include xs(font-size, 1.8vw);
+			@include xxs-block{
+				font-size: 2.6vw;
+				margin-top: 3vw;
+			}
+		}
+	}
+
+	.imgFooter{
+		background-color: black;
+		margin-top: -2px;
+
+		& > picture{
+			width: 100%;
+		}
+	}
+}
+

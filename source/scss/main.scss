@@ -1,7 +1,7 @@
 @import 'smart-grid';
 @import '_normalize';
 @import '_fonts';
-@import 'swiper.min.css';
+// @import 'swiper.min.css';
 
 
 // https://vk.com/id290805503
@@ -80,6 +80,14 @@ body, div, h1, h2, h3, h4, p, input {
   
   width: 77.8%;
   margin: 0 auto;
+
+  @media screen and (max-width: 1023px){
+    width: calc(100% - 60px);
+  }
+
+  @media screen and (max-width: 560px){
+    width: calc(100% - 30px);
+  }
 }
 
 .page {
@@ -116,6 +124,7 @@ body, div, h1, h2, h3, h4, p, input {
   position: relative;
   line-height: 1.15;
   background-color: $mainWhite;
+  overflow: hidden;
 
   .mainTitle{
     font-family: Mir-Bold, sans-serif;
@@ -124,11 +133,11 @@ body, div, h1, h2, h3, h4, p, input {
 		color: black;
 		line-height: 1;
 
-		// @include to(1023px){
-		// 	font-size: 1.4vw;
-		// }
-		// @include sm(font-size, 1.9vw);
-		// @include xs(font-size, 2.4vw);
+		@media screen and (max-width: 1023px){
+      font-size: 3vw;
+    }
+		@include sm(font-size, 3.5vw);
+		@include xs(font-size, 4vw);
 		// @include xxs(font-size, 3.2vw);
 	}
 
@@ -137,13 +146,17 @@ body, div, h1, h2, h3, h4, p, input {
     text-transform: uppercase;
 		font-size: 1.2vw;
 		color: black;
-		line-height: 1.25;
+    line-height: 1.25;
+    
+    @media screen and (max-width: 1280px){
+      font-size: 1.1vw;
+    }
 
-		// @include to(1023px){
-		// 	font-size: 1.4vw;
-		// }
-		// @include sm(font-size, 1.9vw);
-		// @include xs(font-size, 2.4vw);
+		@media screen and (max-width: 1023px){
+      font-size: 1.8vw;
+    }
+		// @include sm(font-size, 1.6vw);
+		@include xs(font-size, 2.2vw);
 		// @include xxs(font-size, 3.2vw);
 
 		// & > span{
@@ -155,13 +168,28 @@ body, div, h1, h2, h3, h4, p, input {
     margin: .5vw 0;
     display: flex;
     align-items: center;
-    transform: translateX(-11vw);
+    transform: translateX(-100vw);
+    transition: .7s cubic-bezier(.41,1.06,.58,.96);
+    // transition: .7s;
+
+    @include xs(margin, 3px 0);
 
     & > div{
       &:first-child{
         background-color: white;
         width: 34vw;
         height: 3px;
+
+        @media screen and (max-width: 1023px){
+          width: 40vw;
+        }
+
+        @include sm(width, 47vw);
+
+        @include xs-block{
+          width: 59vw;
+          height: 1px;
+        }
       }
   
       &:last-child{
@@ -170,6 +198,11 @@ body, div, h1, h2, h3, h4, p, input {
         height: 13px;
         border-radius: 50%;
         margin-left: -2px;
+
+        @include xs-block{
+          width: 5px;
+          height: 5px;
+        }
       }
     }    
 
@@ -178,6 +211,13 @@ body, div, h1, h2, h3, h4, p, input {
         &:first-child{
           background-color: $mainGreen;
           width: 42.5vw;
+
+          @media screen and (max-width: 1023px){
+            width: 60vw;
+          }
+
+          @include sm(width, 69vw);
+          @include xs(width, 77vw);
         }
     
         &:last-child{
@@ -187,6 +227,10 @@ body, div, h1, h2, h3, h4, p, input {
           border-radius: 50%;
         }
       }
+    }
+
+    &_show{
+      transform: translateX(-11vw);
     }
   }
 
@@ -201,6 +245,8 @@ body, div, h1, h2, h3, h4, p, input {
     min-height: 7px;
     border-radius: 50%;
 
+    @include sm(transform, translateX(-10px));
+
     &_white{
       background-color: $mainGreen;
       border: 1.5px solid white;
@@ -213,7 +259,7 @@ body, div, h1, h2, h3, h4, p, input {
   }
 
 	.firstBlock{
-		border: 1px solid black;
+		// border: 1px solid black;
 		position: relative;
 		line-height: 1.15;
 		text-align: center;
@@ -225,6 +271,26 @@ body, div, h1, h2, h3, h4, p, input {
 
     &__fullBg{
       width: 100%;
+
+      @media screen and (max-width: 1023px){
+        width: 110%;
+      }
+
+      @include sm-block{
+        width: 135%;
+        margin-left: -35%;
+      }
+    }
+
+    &__buildings{
+      display: none;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translateX(30%);
+      width: 32%;
+
+      @include sm(display, inline-block);
     }
     
     /* &__greenBg{
@@ -244,9 +310,12 @@ body, div, h1, h2, h3, h4, p, input {
     &__triangle{
       position: absolute;
       right: 10%;
-      bottom: 0;
+      // bottom: 0;
+      bottom: -8vw;
       width: 30vw;
-      transform: translateY(80%);
+      // transform: translateY(80%);
+
+      @include xs(right, 2%);
     }
 
     &__date{
@@ -256,20 +325,38 @@ body, div, h1, h2, h3, h4, p, input {
       font-family: Mir-Bold, sans-serif;
       font-size: 1vw;
       transform: rotate(90deg) translateX(-60%);
+
+      @media screen and (max-width: 1023px){
+        font-size: 1.5vw;
+        right: 10%;
+      }
+
+      @include sm-block{
+        font-size: 2vw;
+        right: 13%;
+      }
+
+      @include xs-block{
+        font-size: 2.6vw;
+        right: 10%;
+        transform: rotate(90deg) translateX(-50%);
+      }
     }
 
     &__container{
-      border: 1px solid red;
+      // border: 1px solid red;
       position: absolute;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
       // padding: 4.3vw 0 6.5vw 0;
       padding-top: 4.3vw;
+
+      @include xs(padding-top, 3vw);
     }
 
     &__titleBlock{
-      border: 1px solid black;
+      // border: 1px solid black;
       font-family: Mir-Bold, sans-serif;
       text-align: left;
       text-transform: uppercase;
@@ -279,11 +366,25 @@ body, div, h1, h2, h3, h4, p, input {
       & > h2{
         color: white;
         font-size: 2vw;
+
+        @media screen and (max-width: 1023px){
+          font-size: 3vw;
+        }
+
+        @include sm(font-size, 4vw);
+        @include xs(font-size, 5vw);
       }
 
       & > h1{
         font-size: 3.5vw;
         margin-top: 5px;
+
+        @media screen and (max-width: 1023px){
+          font-size: 5.45vw;
+        }
+
+        @include sm(font-size, 7.25vw);
+        @include xs(font-size, 9.2vw);
       }
     }
 
@@ -292,10 +393,16 @@ body, div, h1, h2, h3, h4, p, input {
       text-align: left;
       text-transform: uppercase;
       font-size: 1.15vw;
+
+      @media screen and (max-width: 1023px){
+        font-size: 2vw;
+      }
+
+      @include sm(font-size, 2.5vw);
     }
 
     &__logosLayout{
-      border: 1px solid black;
+      // border: 1px solid black;
       position: absolute;
       //100% - width of container / 2
       left: calc((100% - 77.8%) / 2);
@@ -308,6 +415,20 @@ body, div, h1, h2, h3, h4, p, input {
       align-items: center;
       justify-content: space-between;
       width: 23.4vw;
+
+      @media screen and (max-width: 1023px){
+        width: 32vw;
+        left: 30px;
+      }
+
+      @include sm-block{
+        width: 45vw;
+      }
+
+      @include xs-block{
+        width: 55vw;
+        transform: translateY(65%);
+      }
 
       & > img{
         
@@ -323,17 +444,30 @@ body, div, h1, h2, h3, h4, p, input {
   }
   
   .tasks{
-    border: 1px solid black;
+    // border: 1px solid black;
 		position: relative;
     line-height: 1.15;
     padding-top: 7vw;
     padding-bottom: 4.1vw;
     z-index: 1;
 
-    
+    @media screen and (max-width: 1023px){
+      padding-top: 8vw;
+      padding-bottom: 5vw;
+    }
+
+    @include sm-block{
+      padding-top: 9vw;
+      padding-bottom: 6vw;
+    }
+
+    @include xs-block{
+      padding-top: 10vw;
+      padding-bottom: 6vw;
+    }
     
     &__list{
-      border: 1px solid red;
+      // border: 1px solid red;
       position: relative;
       color: black;
     }
@@ -364,15 +498,31 @@ body, div, h1, h2, h3, h4, p, input {
       left: calc(.13vw);
       width: 2px;
       height: 80%;
+
+      @media screen and (max-width: 1366px){
+        left: 0.22vw;
+      }
+
+      @media screen and (max-width: 1023px){
+        left: 0.25vw;
+      }
+
+      @include sm-block{
+        left: .38vw;
+        height: 67%;
+      }
+
+      @include xxs-block{
+        left: .55vw;
+        height: 67%;
+      }
     }
   }
 
   .TA{
-    border: 1px solid black;
+    // border: 1px solid black;
 		position: relative;
     line-height: 1.15;
-    // padding-top: 7vw;
-    // padding-bottom: 4.1vw;
 
     &__boldTitle{
       font-weight: bold;
@@ -393,6 +543,33 @@ body, div, h1, h2, h3, h4, p, input {
 
     &__fullBg{
       width: 100%;
+
+      @media screen and (max-width: 1023px){
+        width: 114%;
+        margin-left: -9%;
+      }
+
+      @include sm-block{
+        width: 135%;
+        margin-left: -33%;
+      }
+
+      @include xs(margin-left, -20%);
+    }
+
+    &__peopleBg{
+      display: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5%;
+      width: 33%;
+
+      @include sm(display, block);
+      @include xs-block{
+        width: 28%;
+        right: 0;
+      }
     }
 
     &__container{
@@ -403,11 +580,19 @@ body, div, h1, h2, h3, h4, p, input {
     }
 
     &__textBlock{
-      border: 1px solid red;
+      // border: 1px solid red;
       position: relative;
       width: 47%;
 
       margin: 1vw 0;
+
+      @media screen and (max-width: 1023px){
+        width: 53%;
+      }
+
+      @include sm(width, 60%);
+      @include xs(width, 75%);
+      // @include xxs(width, 75%);
     }
 
     &__dotted{
@@ -416,32 +601,59 @@ body, div, h1, h2, h3, h4, p, input {
       left: calc(.15vw);
       width: 2px;
       height: 110%;
+
+      @media screen and (max-width: 1366px){
+        left: 0.22vw;
+      }
+
+      @media screen and (max-width: 1023px){
+        height: 105%;
+        top: 6%;
+        left: .3vw; 
+      }
+
+      @include xs(left, .5vw);
     }
 
     &__text{
       color: #3c6971;
       font-weight: bold;
       margin-left: .9vw;
+      margin-top: .2vw;
+
+      @include sm(margin-left, 10px);
     }
   }
 
   .decision{
-    border: 1px solid black;
+    // border: 1px solid black;
 		position: relative;
     line-height: 1.15;
     padding-top: 2.5vw;
     padding-bottom: 3.5vw;
+    z-index: 3;
+
+    @media screen and (max-width: 1023px){
+      padding-top: 5vw;
+      padding-bottom: 5vw;
+    }
+
+    @include sm-block{
+      padding-top: 6vw;
+      padding-bottom: 6vw;
+    }
 
     &__triangle{
       position: absolute;
-      bottom: 0;
-      transform: translateY(10%);
+      // bottom: 0;
+      bottom: -13vw;
+      // transform: translateY(10%);
       right: 5vw;
       width: 20vw;
 		}
 
     &__block{
-      border: 1px solid black;
+      // border: 1px solid black;
       width: 90%;
       margin: 1vw 0;
     }
@@ -452,6 +664,7 @@ body, div, h1, h2, h3, h4, p, input {
 
     &__list{
       position: relative;
+      margin-top: .2vw;
     }
 
     &__task{
@@ -460,6 +673,7 @@ body, div, h1, h2, h3, h4, p, input {
       color: #3c6971;
 
       transform: translateX(calc(.4vw + .5vw));
+      @include sm(transform, translateX(10px));
     }
 
     &__dottedLine{
@@ -468,36 +682,128 @@ body, div, h1, h2, h3, h4, p, input {
       left: .14vw;
       width: 2px;
 
+      @media screen and (max-width: 1366px){
+        left: 0.23vw;
+      }
+
+      @media screen and (max-width: 1023px){
+        left: .25vw;
+      }
+
       &_1{
         height: 71%;
+
+        @media screen and (max-width: 1366px){
+          height: 77%;
+        }
+
+        @media screen and (max-width: 1023px){
+          height: 73%;
+        }
+
+        @include xs(left, .5vw);
       }
 
       &_2{
         height: 40%;
+
+        @media screen and (max-width: 1023px){
+          height: 54%;
+        }
+        @include xs-block{
+          left: 0.5vw;
+          height: 63%;
+        }
       }
     }
 	}
 	
 	.result{
-		border: 1px solid black;
+		// border: 1px solid black;
 		position: relative;
     line-height: 1.15;
+    z-index: 2;
+    // box-shadow: 0px 11px 21px 0px rgba(33, 34, 42, 0.13);
+
+    &__fullBg{
+
+      width: 100%;
+
+      @media screen and (max-width: 1023px){
+        width: 110%;
+      }
+
+      @include sm-block{
+        width: 135%;
+        margin-left: -5%;
+      }
+    }
+
+    &__triangle{
+      position: absolute;
+      left: 14vw;
+      // bottom: 0;
+      bottom: -30vw;
+      // transform: translateY(42%);
+      width: 26%;
+
+      @media screen and (max-width: 1023px){
+        // transform: translateY(55%);
+        bottom: -40vw;
+      }
+    }
 
 		&__container{
-			border: 1px solid red;
+			// border: 1px solid red;
 			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
+      top: 50%;
+      left: 50%;
+			transform: translate(-50%, -50%);
 			display: flex;
 			align-items: center;
 		}
 
 		&__left{
-			border: 1px solid black;
+      // border: 1px solid black;
+      width: 42%;
+
+      @include sm(width, 50%);
+      @include xs(width, 55%);
 		}
 
 		&__right{
-			border: 1px solid white;
+      // border: 1px solid white;
+      width: 36.6%;
+      text-align: center;
+      margin-left: 3vw;
+
+      @include sm(width, 50%);
+      @include xs(width, 45%);
+
+      & > img{
+        width: 50%;
+        margin-top: 1.5vw;
+
+        @media screen and (max-width: 1023px){
+          width: 60%;
+        }
+
+        @include xs(width, 70%);
+      }
+
+      & > h2{
+        color: white;
+
+        @media screen and (max-width: 1366px){
+          font-size: 1.8vw;
+        }
+
+        @media screen and (max-width: 1023px){
+          font-size: 2.5vw;
+        }
+
+        @include xs(font-size, 3vw);
+      }
 		}
 
 		&__circ{
@@ -521,11 +827,130 @@ body, div, h1, h2, h3, h4, p, input {
       color: #3c6971;
       font-weight: bold;
       margin-left: .9vw;
+      margin-top: .2vw;
+
+      @include sm(margin-left, 10px);
     }
-	}
+
+    &__dotted{
+      position: absolute;
+      // top: 5.6vw;
+      top: 35%;
+      // left: .205vw;
+      left: .3%;
+      width: 2px;
+      height: 50%;
+
+      @media screen and (max-width: 1023px){
+        left: .37vw;
+      }
+    }
+  } 
+  
+  .cases{
+    // border: 1px solid black;
+		position: relative;
+    line-height: 1.15;
+    padding-top: 4vw;
+    z-index: 1;
+
+    @media screen and (max-width: 1023px){
+      padding-top: svw;
+    }
+
+    @include xs(padding-top, 9vw);
+
+    &__wrapper{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 4.5vw;
+
+      @include sm(justify-content, space-between);
+
+      & > picture{
+        width: 20%;
+
+        @media screen and (max-width: 1023px){
+          width: 25%;
+        }
+
+        @include sm(width, 30%);
+        @include xs(width, 32%);
+      }
+    }
+  }
+
+  .stats{
+    // border: 1px solid black;
+		position: relative;
+    line-height: 1.15;    
+    text-align: center;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+
+    @media screen and (max-width: 1023px){
+      padding-top: 7vw;
+      padding-bottom: 5vw;
+    }
+
+    @include xs-block{
+      padding-bottom: 8vw;
+    }
+
+    &__title{
+      // text-align: center;
+    }
+
+    &__graph{
+      width: 95%;
+      margin: 2.5vw auto 0 auto;
+
+      @media screen and (max-width: 1200px){
+        width: 100%;
+      }
+
+      @include xs-block{
+        width: calc(100% + 20px);
+        margin-left: -10px;
+      }
+    }
+
+    &__graphNotes{
+      width: 48%;
+      margin-top: 1.55vw;
+
+      @media screen and (max-width: 1200px){
+        width: 50%;
+      }
+
+      @include sm(width, 65%);
+      @include xs(width, 75%);
+    }
+
+    &__forestLine{
+      width: 95%;
+      margin: 4.2vw auto 0 auto;
+
+      @media screen and (max-width: 1200px){
+        width: 100%;
+      }
+    }
+
+    &__lastP{
+      // border: 1px solid red;
+      font-family: Mir-Bold, sans-serif;
+      width: 75%;
+      margin: 1.5vw auto 0 auto;
+
+      @media screen and (max-width: 1023px){
+        width: 100%;
+      }
+    }
+  }
 
 	/* .slider{
-		// border: 1px solid blue;
+		border: 1px solid blue;
 		position: relative;
 		line-height: 1.15;
 
@@ -534,14 +959,14 @@ body, div, h1, h2, h3, h4, p, input {
 		@include xxs(padding, 12vw 0 0 0);
 
 		&__wrapperSwiper{
-			// border: 1px solid yellow;
+			border: 1px solid yellow;
 			position: relative;			
 			width: 100%;
 			text-align: center;
 		}
 
 		&__swiper-container{
-			// border: 1px solid red;
+			border: 1px solid red;
 			position: relative;
 			overflow: hidden;
 			cursor: pointer;
@@ -574,7 +999,7 @@ body, div, h1, h2, h3, h4, p, input {
 		}
 
 		&__buttons{
-			// border: 1px solid red;
+			border: 1px solid red;
 			position: absolute;
 			width: 80%;
 
@@ -643,130 +1068,112 @@ body, div, h1, h2, h3, h4, p, input {
 	} */
 
 	.team{
-		// border: 1px solid white;
+		// border: 1px solid black;
     position: relative;
-		line-height: 1.15;
-		background-color: black;
+    line-height: 1.15;
 
-		padding: 3vw 0;
+    &__fullBg{
+      width: 100%;
 
-		&__content{
-			// border: 1px solid white;
-			width: 95%;
-			margin: 0 auto;
-		}
+      @media screen and (max-width: 1023px){
+        width: 110%;
+        margin-left: -5%;
+      }
 
-		&__title{
-			text-align: center;
-		}
+      @include sm-block{
+        width: 135%;        
+      }
+      
+      @include xs-block{
+        width: 145%;
+        margin-left: 0;
+      }
+    }
+    
+    &__container{
+      // border: 1px solid black;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include xs(top, 43.5%);
+    }
 
     &__members{
 			// border: 1px solid blue;
       display: flex;
-      // flex-wrap: wrap;
-			justify-content: space-between;
 
-			width: 100%;
+      width: 75%;
+      
+      @media screen and (max-width: 1023px){
+        width: 70%;
+      }
 
-			margin-top: 2vw;
-
-			@include to(1366px){
-				flex-wrap: wrap;
-			}
-
-			@include xs(justify-content, space-around);
+      @include sm(width, 90%);
+      @include xs(width, 100%);
 		}
 	}
 
   .member{
-		// border: 1px solid red;
-		position: relative;
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
+		// border: 1px solid yellow;
+    position: relative;
+    text-align: center;
 
-		color: white;
-
-		width: 12.5%;
-		padding: 0 .5vw;
-
-		@include to(1366px){
-			width: 21%;
-			margin: 1.5vw 0;
-		}
-
-		@include sm(width, 24%);
-		@include xs(width, 30%);
-		@include xxs(width, 45%);
+    margin: 0 .8vw;
 		
 		&__photo{
-			position: relative;
-			width: 40%;
-		}
-
-		&__textBlock{
-			// border: 1px solid yellow;
-			width: calc(60% - .5vw);
-			margin-left: .5vw;
-
-			@include sm-block{
-				width: calc(60% - 1vw);
-				margin-left: 1vw;
-			}
-
-			@include xxs-block{
-				width: calc(60% - 1.5vw);
-				margin-left: 1.5vw;
-			}
+      position: relative;
+      transform: translateX(13%);
 		}
 
 		&__name{
-			font-family: Gilroy-Bold, sans-serif;
-			font-size: .8vw;
+      font-family: Mir-Bold, sans-serif;
+      color: black;
+      font-size: 1.2vw;
+      margin-top: .35vw;
 
 			@include to(1366px){
-				font-size: 1vw;
-			}
+				// font-size: 1.3vw;
+      }
+      
+      @media screen and (max-width: 1023px){
+        font-size: 1.8vw;
+      }
 
-			@include to(1023px){
-				font-size: 1.4vw;
-			}
+			// @include to(1023px){
+			// 	font-size: 1.4vw;
+			// }
 
-			@include sm(font-size, 1.6vw);
-			@include xs(font-size, 2vw);
-			@include xxs(font-size, 3vw);
+			@include sm(font-size, 2vw);
+			@include xs(font-size, 2.5vw);
+			// @include xxs(font-size, 3vw);
 		}
 
 		&__position{
-			font-family: Gilroy-Regular, sans-serif;
-			font-size: .6vw;
-
-			margin-top: .6vw;
+      font-family: Mir-Bold, sans-serif;
+      color: #3c6971;
+      font-size: 1.1vw;
+      margin-top: .2vw;
 
 			@include to(1366px){
-				font-size: .8vw;
-				margin-top: 1vw;
-			}
+				font-size: 1.05vw;
+      }
+      
+      @media screen and (max-width: 1023px){
+        font-size: 1.5vw;
+      }
 
-			@include to(1023px){
-				font-size: 1.1vw;
-			}
+			// @include to(1023px){
+			// 	font-size: 1.1vw;
+			// }
 
-			@include sm(font-size, 1.4vw);
-			@include xs(font-size, 1.8vw);
-			@include xxs-block{
-				font-size: 2.6vw;
-				margin-top: 3vw;
-			}
-		}
-	}
-
-	.imgFooter{
-		background-color: black;
-		margin-top: -2px;
-
-		& > picture{
-			width: 100%;
+			@include sm(font-size, 1.8vw);
+			@include xs(font-size, 2.2vw);
+			// @include xxs-block{
+			// 	font-size: 2.6vw;
+			// 	margin-top: 3vw;
+			// }
 		}
 	}
 }

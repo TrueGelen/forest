@@ -203,12 +203,12 @@ body, div, h1, h2, h3, h4, p, input {
 
     &_white{
       background-color: $mainGreen;
-      border: 1px solid white;
+      border: 1.5px solid white;
     }
 
     &_green{
       background-color: $mainWhite;
-      border: 1px solid $mainGreen;
+      border: 1.5px solid $mainGreen;
     }
   }
 
@@ -438,7 +438,7 @@ body, div, h1, h2, h3, h4, p, input {
       transform: translateY(10%);
       right: 5vw;
       width: 20vw;
-    }
+		}
 
     &__block{
       border: 1px solid black;
@@ -476,7 +476,53 @@ body, div, h1, h2, h3, h4, p, input {
         height: 40%;
       }
     }
-  }
+	}
+	
+	.result{
+		border: 1px solid black;
+		position: relative;
+    line-height: 1.15;
+
+		&__container{
+			border: 1px solid red;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			align-items: center;
+		}
+
+		&__left{
+			border: 1px solid black;
+		}
+
+		&__right{
+			border: 1px solid white;
+		}
+
+		&__circ{
+      border: 1.5px solid white;
+      background-color: $mainGreen;
+      width: 0.4vw;
+      height: 0.4vw;
+      min-height: 7px;
+      min-width: 7px;
+      border-radius: 50%;
+      margin-right: .5vw;
+    }
+
+		&__boldTitle{
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+		&__text{
+      color: #3c6971;
+      font-weight: bold;
+      margin-left: .9vw;
+    }
+	}
 
 	/* .slider{
 		// border: 1px solid blue;

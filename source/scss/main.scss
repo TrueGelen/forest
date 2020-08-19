@@ -177,14 +177,14 @@ body, div, h1, h2, h3, h4, p, input {
     & > div{
       &:first-child{
         background-color: white;
-        width: 34vw;
+        width: 37vw;
         height: 3px;
 
         @media screen and (max-width: 1023px){
-          width: 40vw;
+          width: 42vw;
         }
 
-        @include sm(width, 47vw);
+        @include sm(width, 49vw);
 
         @include xs-block{
           width: 59vw;
@@ -210,13 +210,13 @@ body, div, h1, h2, h3, h4, p, input {
       & > div{
         &:first-child{
           background-color: $mainGreen;
-          width: 42.5vw;
+          width: 45vw;
 
           @media screen and (max-width: 1023px){
-            width: 60vw;
+            width: 62vw;
           }
 
-          @include sm(width, 69vw);
+          @include sm(width, 71vw);
           @include xs(width, 77vw);
         }
     
@@ -378,6 +378,7 @@ body, div, h1, h2, h3, h4, p, input {
       & > h1{
         font-size: 3.5vw;
         margin-top: 5px;
+        margin-bottom: 0;
 
         @media screen and (max-width: 1023px){
           font-size: 5.45vw;

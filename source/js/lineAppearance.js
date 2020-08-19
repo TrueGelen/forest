@@ -1,9 +1,7 @@
 window.addEventListener('load', () => {
   const lines = [...document.querySelectorAll('.titleLine')]
-  console.log(lines)
 
   window.addEventListener('scroll', () => {
-    // console.log(window.pageYOffset)
     showLine()
   })
 
@@ -20,8 +18,4 @@ window.addEventListener('load', () => {
     })
   }
   showLine()
-
-  // lines.forEach(line => {
-  //   console.log(line, line.getBoundingClientRect().y + (line.getBoundingClientRect().width + window.innerHeight / 3))
-  // })
 })
